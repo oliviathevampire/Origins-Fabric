@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "origins",
+  "version": "${version}",
+
+  "name": "Origins",
+  "description": "An expansion to the surface of the world, including improved Villagers, tons of new decorative blocks and biome-dependent resources and gameplay.",
+  "authors": [
+    "Team Abnormals"
+  ],
+  "contact": {
+    "homepage": "https://origins.github.io/",
+    "sources": "https://github.com/minencraftabnormals/Origins-Fabric"
+  },
+
+  "license": "MIT",
+  "icon": "assets/origins/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "team.abnormals.origins.Origins"
+    ]
+  },
+  "mixins": [
+    "origins.mixins.json"
+  ],
+
+  "requires": {
+    "fabricloader": ">=0.4.0",
+    "fabric": ">=0.3.0",
+    "abnormalib": "*"
+  }
+}
