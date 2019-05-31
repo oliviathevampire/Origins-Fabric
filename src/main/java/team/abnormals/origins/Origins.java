@@ -1,7 +1,6 @@
 package team.abnormals.origins;
 
 import net.fabricmc.api.ModInitializer;
-import team.abnormals.abnormalib.old.utils.ContentBuilder;
 import team.abnormals.module_api.ModuleManager;
 import team.abnormals.origins.modules.decoration.DecorationsModule;
 import team.abnormals.origins.modules.deeper.DeeperModule;
