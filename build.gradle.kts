@@ -52,10 +52,8 @@ dependencies {
 
     modCompile(group = "io.github.prospector.modmenu", name = "ModMenu", version = Dependencies.ModMenu.version)
 
-	modCompile(group = "team.hollow", name = "AbnormaLib", version = Dependencies.AbnormaLib.version)
-	include(group = "team.hollow", name = "AbnormaLib", version = Dependencies.AbnormaLib.version)
-
-	modCompile(group = "io.github.cottonmc", name = "cotton", version = "0.6.7+1.14.1-SNAPSHOT")
+	modCompile(group = "team.abnormals", name = "AbnormaLib", version = Dependencies.AbnormaLib.version)
+	include(group = "team.abnormals", name = "AbnormaLib", version = Dependencies.AbnormaLib.version)
 
 	modCompile("informed-load-fabric:informedload:2.1.0:1.14")
 

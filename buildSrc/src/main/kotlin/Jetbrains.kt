@@ -4,7 +4,7 @@ object Fabric {
     }
 
     object API {
-        const val version = "0.3.0-pre+build.167"
+        const val version = "0.3.0+build.175"
     }
 
     object Loom {
@@ -12,7 +12,7 @@ object Fabric {
     }
 
     object Yarn {
-        const val version = "build.1"
+        const val version = "build.2"
     }
 }
 
@@ -27,10 +27,13 @@ object Dependencies {
         const val version = "+"
     }
     object AbnormaLib {
-        const val version = "0.5.0+1.14.2_Pre3-SNAPSHOT"
+        const val version = "0.6.4+1.14.2-ALPHA"
+    }
+    object REI {
+        const val version = "2.9.1+build.121"
     }
 }
 
 object Minecraft {
-    const val version = "1.14.2 Pre-Release 4"
+    const val version = "1.14.2"
 }
