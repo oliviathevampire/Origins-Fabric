@@ -27,14 +27,20 @@ package team.abnormals.origins.modules.decoration;
 import me.sargunvohra.mcmods.autoconfig1.ConfigData;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
 import net.minecraft.block.MaterialColor;
+import net.minecraft.entity.EntityCategory;
+import net.minecraft.entity.EntitySize;
+import net.minecraft.entity.EntityType;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import team.abnormals.abnormalib.blocks.BaseModBlock;
+import team.abnormals.abnormalib.utils.registry.EntityRegistryBuilder;
 import team.abnormals.module_api.api.Module;
 import team.abnormals.origins.Origins;
-import team.abnormals.origins.block.sapling.PalmSaplingGenerator;
+import team.abnormals.origins.modules.decoration.block.sapling.PalmSaplingGenerator;
+import team.abnormals.origins.modules.decoration.entity.FlyingLanternEntity;
 import team.abnormals.origins.utils.registry.WoodRegistry;
 
 public class DecorationsModule extends Module {
@@ -54,6 +60,24 @@ public class DecorationsModule extends Module {
 
     public static  WoodRegistry PALM;
     public static WoodRegistry WILLOW;
+    public static WoodRegistry ACACIA;
+    public static WoodRegistry BIRCH;
+    public static WoodRegistry DARK_OAK;
+    public static WoodRegistry JUNGLE;
+    public static WoodRegistry OAK;
+    public static WoodRegistry SPRUCE;
+
+    public static final EntityType<FlyingLanternEntity> FLYING_LANTERN;
+
+    static {
+        FLYING_LANTERN = EntityRegistryBuilder
+                .<FlyingLanternEntity>createBuilder(new Identifier(Origins.MOD_ID, "flying_lantern"))
+                .entity(FlyingLanternEntity::new)
+                .category(EntityCategory.MISC)
+                .size(EntitySize.constant(1.0F, 1.0F))
+                .hasEgg(false)
+                .build();
+    }
 
     @Override
     public Class<? extends ConfigData> getConfig() {
@@ -65,9 +89,33 @@ public class DecorationsModule extends Module {
         PALM = new WoodRegistry.Builder(new Identifier(Origins.MOD_ID, "palm"), new PalmSaplingGenerator())
                 .planks().log().log(new BaseModBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).strength(2.0F, 3.0F)
                         .sounds(BlockSoundGroup.WOOD).build()), "palm_log_top").strippedLog().wood().strippedWood().door().trapdoor().leaves()
-                .sapling().fence().fenceGate().slab().stairs().build();
+                .sapling().fence().fenceGate().slab().stairs().paperLantern().build();
         WILLOW = new WoodRegistry.Builder(new Identifier(Origins.MOD_ID, "willow"))
                 .planks().log().strippedLog().wood().strippedWood().door().trapdoor().leaves().waterloggedSapling().sapling().build();
+
+        ACACIA = new WoodRegistry.Builder(new Identifier(Origins.MOD_ID, "acacia"), Blocks.ACACIA_PLANKS)
+                .chest().bookshelf().paperLantern().patternedPlanks().carvedPlanks()
+                .logCampfire().strippedLogCampfire().build();
+
+        BIRCH = new WoodRegistry.Builder(new Identifier(Origins.MOD_ID, "birch"), Blocks.BIRCH_PLANKS)
+                .chest().bookshelf().paperLantern().patternedPlanks().carvedPlanks()
+                .logCampfire().strippedLogCampfire().build();
+
+        DARK_OAK = new WoodRegistry.Builder(new Identifier(Origins.MOD_ID, "dark_oak"), Blocks.DARK_OAK_PLANKS)
+                .chest().bookshelf().paperLantern().patternedPlanks().carvedPlanks()
+                .logCampfire().strippedLogCampfire().build();
+
+        JUNGLE = new WoodRegistry.Builder(new Identifier(Origins.MOD_ID, "jungle"), Blocks.JUNGLE_PLANKS)
+                .chest().bookshelf().paperLantern().patternedPlanks().carvedPlanks()
+                .logCampfire().strippedLogCampfire().build();
+
+        OAK = new WoodRegistry.Builder(new Identifier(Origins.MOD_ID, "oak"), Blocks.OAK_PLANKS)
+                .chest().trappedChest().paperLantern().patternedPlanks().carvedPlanks().strippedLogCampfire()
+                .build();
+
+        SPRUCE = new WoodRegistry.Builder(new Identifier(Origins.MOD_ID, "spruce"), Blocks.SPRUCE_PLANKS)
+                .chest().bookshelf().paperLantern().patternedPlanks().carvedPlanks()
+                .logCampfire().strippedLogCampfire().build();
     }
 
     @Override

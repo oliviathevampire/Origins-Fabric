@@ -30,7 +30,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPointer;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Position;
-import team.abnormals.origins.entity.FlyingLanternEntity;
+import team.abnormals.origins.modules.decoration.entity.FlyingLanternEntity;
 
 public class Utils {
 
@@ -42,7 +42,7 @@ public class Utils {
         entity.setVelocity(direction.getOffsetX() * 0.03, 0, direction.getOffsetZ() * 0.03);
         blockPointer.getWorld().spawnEntity(entity);
 
-        itemStack.subtractAmount(1);
+        itemStack.decrement(1);
         return itemStack;
     }
 

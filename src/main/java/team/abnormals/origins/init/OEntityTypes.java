@@ -30,7 +30,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.util.Identifier;
 import team.abnormals.abnormalib.utils.registry.EntityRegistryBuilder;
 import team.abnormals.origins.Origins;
-import team.abnormals.origins.entity.FlyingLanternEntity;
+import team.abnormals.origins.modules.decoration.entity.FlyingLanternEntity;
 
 public class OEntityTypes {
 

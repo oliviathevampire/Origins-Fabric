@@ -41,6 +41,12 @@ public class ResourceUtils {
         return path;
     }
 
+    public static Path getLangPath(String modId) {
+        Path path = getAssetsModPath(modId).resolve("lang");
+        createPath(path.toFile());
+        return path;
+    }
+
     public static Path getItemModelsPath(String modId) {
         Path path = getAssetsModPath(modId).resolve("models").resolve("item");
         createPath(path.toFile());

@@ -36,6 +36,7 @@ repositories {
 	maven("http://server.bbkr.space:8081/artifactory/libs-snapshot/")
 	maven( "http://server.bbkr.space:8081/artifactory/libs-release/")
 	maven("https://maven.jamieswhiteshirt.com/libs-release/")
+	maven ("https://maven.abusedmaster.xyz")
 }
 
 dependencies {
@@ -50,17 +51,15 @@ dependencies {
     modCompile(group = "me.sargunvohra.mcmods", name = "auto-config", version = Dependencies.AutoConfig.version)
     include(group = "me.sargunvohra.mcmods", name = "auto-config", version = Dependencies.AutoConfig.version)
 
-    modCompile(group = "io.github.prospector.modmenu", name = "ModMenu", version = Dependencies.ModMenu.version)
-
 	modCompile(group = "team.abnormals", name = "AbnormaLib", version = Dependencies.AbnormaLib.version)
 	include(group = "team.abnormals", name = "AbnormaLib", version = Dependencies.AbnormaLib.version)
 
-	modCompile("informed-load-fabric:informedload:2.1.0:1.14")
-
-	modCompile("the-biome-overhaul:the-biome:overhaul:1.2.0")
-
 	// For dev env testing
 	modCompile("com.jamieswhiteshirt:developer-mode:1.0.11")
+	modCompile(group = "me.shedaniel", name = "RoughlyEnoughItems", version = Dependencies.REI.version)
+	modCompile("informed-load-fabric:informedload:2.1.0:1.14")
+	modCompile("the-biome-overhaul:the-biome:overhaul:1.2.0")
+	modCompile(group = "io.github.prospector.modmenu", name = "ModMenu", version = Dependencies.ModMenu.version)
 
 	compile(group="com.google.code.findbugs", name="jsr305", version="3.0.2")
 }

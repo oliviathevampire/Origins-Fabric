@@ -4,7 +4,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.CharEncoding;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.text.WordUtils;
+import team.abnormals.origins.Origins;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +28,7 @@ public class JsonGenerator {
 
     public static void main(String[] args) {
         for(DyeColor dyeColor : DyeColor.values()) {
-            genStair(ResourceUtils.extendedModdedIdentifier(String.format("%s_terracotta", dyeColor.asString()), "_stairs"),
+            /*genStair(ResourceUtils.extendedModdedIdentifier(String.format("%s_terracotta", dyeColor.asString()), "_stairs"),
                     ResourceUtils.extendedVanillaIdentifier(dyeColor.asString(), "_terracotta"),
                     ResourceUtils.extendedVanillaIdentifier(dyeColor.asString(), "_terracotta"),
                     ResourceUtils.extendedVanillaIdentifier(dyeColor.asString(), "_terracotta"));
@@ -48,10 +54,39 @@ public class JsonGenerator {
                     ResourceUtils.extendedVanillaIdentifier(dyeColor.asString(), "_concrete"));
 
             genWall(ResourceUtils.extendedModdedIdentifier(String.format("%s_concrete", dyeColor.asString()), "_wall"),
-                    ResourceUtils.extendedVanillaIdentifier(dyeColor.asString(), "_concrete"));
+                    ResourceUtils.extendedVanillaIdentifier(dyeColor.asString(), "_concrete"));*/
+
+            genLangFile(new Identifier(Origins.MOD_ID, String.format("%s_terracotta_stairs", dyeColor.asString())),
+                    String.format("%s_terracotta_stairs", dyeColor.asString()));
+            genLangFile(new Identifier(Origins.MOD_ID, String.format("%s_terracotta_slab", dyeColor.asString())),
+                    String.format("%s_terracotta_slab", dyeColor.asString()));
+            genLangFile(new Identifier(Origins.MOD_ID, String.format("%s_terracotta_wall", dyeColor.asString())),
+                    String.format("%s_terracotta_wall", dyeColor.asString()));
+
+            genLangFile(new Identifier(Origins.MOD_ID, String.format("%s_concrete_stairs", dyeColor.asString())),
+                    String.format("%s_concrete_stairs", dyeColor.asString()));
+            genLangFile(new Identifier(Origins.MOD_ID, String.format("%s_concrete_slab", dyeColor.asString())),
+                    String.format("%s_concrete_slab", dyeColor.asString()));
+            genLangFile(new Identifier(Origins.MOD_ID, String.format("%s_concrete_wall", dyeColor.asString())),
+                    String.format("%s_concrete_wall", dyeColor.asString()));
         }
 
-        finish();
+//        finish();
+    }
+
+    private static void genLangFile(Identifier block_name, String unlocalized_name) {
+        String name = unlocalized_name.replace("_", " ");
+        unlocalized_name = WordUtils.capitalizeFully(name);
+
+        JsonObject root = new JsonObject();
+        root.addProperty(String.format("block.%s.%s", block_name.getNamespace(), block_name.getPath()), unlocalized_name);
+
+        try {
+            FileUtils.writeStringToFile(ResourceUtils.getLangPath(block_name.getNamespace()).resolve("en_us.json").toFile(),
+                    StringEscapeUtils.unescapeJson(ResourceUtils.GSON.toJson(root)), CharEncoding.UTF_8);
+        } catch (IOException e) {
+            System.out.printf("Error creating file %s.json" + "\n", ResourceUtils.getLangPath(block_name.getNamespace()).resolve("en_us.json").toFile().getAbsolutePath());
+        }
     }
 
     public static void genStair(Identifier identifier, Identifier bottomTexture, Identifier topTexture, Identifier sideTexture) {

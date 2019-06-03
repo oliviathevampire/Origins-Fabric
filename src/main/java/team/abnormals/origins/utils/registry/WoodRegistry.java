@@ -42,7 +42,7 @@ import team.abnormals.abnormalib.blocks.*;
 import team.abnormals.abnormalib.blocks.entity.ChestBaseBlockEntity;
 import team.abnormals.abnormalib.client.renderer.ChestBaseBlockEntityRenderer;
 import team.abnormals.abnormalib.utils.registry.RegistryUtils;
-import team.abnormals.origins.block.PaperLanternBlock;
+import team.abnormals.origins.modules.decoration.block.PaperLanternBlock;
 import team.abnormals.origins.utils.Utils;
 
 public class WoodRegistry {
