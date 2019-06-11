@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "team.abnormals.origins.Origins"
+    ],
+    "client": [
+      "team.abnormals.origins.init.ClientInit"
     ]
   },
 

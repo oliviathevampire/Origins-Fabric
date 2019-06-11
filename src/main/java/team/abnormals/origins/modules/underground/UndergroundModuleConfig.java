@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-package team.abnormals.origins.modules.surface;
+package team.abnormals.origins.modules.underground;
 
 import me.sargunvohra.mcmods.autoconfig1.ConfigData;
 import me.sargunvohra.mcmods.autoconfig1.annotation.Config;
@@ -31,9 +31,9 @@ import me.sargunvohra.mcmods.autoconfig1.annotation.ConfigEntry;
 import java.util.Arrays;
 import java.util.List;
 
-@Config(name = "surface")
-@Config.Gui.Background("minecraft:textures/block/grass_block_top.png")
-class SurfaceModuleConfig implements ConfigData {
+@Config(name = "deeper")
+@Config.Gui.Background("minecraft:textures/block/stone.png")
+class UndergroundModuleConfig implements ConfigData {
 
     @ConfigEntry.BoundedDiscrete(min = -1000, max = 2000)
     private int intSlider = 500;
