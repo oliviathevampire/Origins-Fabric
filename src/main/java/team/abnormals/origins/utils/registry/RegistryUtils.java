@@ -1,3 +1,4 @@
+/*
 package team.abnormals.origins.utils.registry;
 
 import net.minecraft.block.entity.BlockEntity;
@@ -15,3 +16,4 @@ public class RegistryUtils {
     }
 
 }
+*/

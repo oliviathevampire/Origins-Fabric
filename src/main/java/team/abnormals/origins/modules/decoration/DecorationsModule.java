@@ -34,6 +34,7 @@ import net.minecraft.entity.EntityCategory;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.DyeColor;
 import net.minecraft.util.Identifier;
 import team.abnormals.abnormalib.blocks.BaseModBlock;
 import team.abnormals.abnormalib.utils.registry.EntityRegistryBuilder;

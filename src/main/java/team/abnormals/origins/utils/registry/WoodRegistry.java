@@ -24,26 +24,19 @@
 
 package team.abnormals.origins.utils.registry;
 
+import io.github.vampirestudios.vampirelib.blocks.*;
+import io.github.vampirestudios.vampirelib.utils.registry.RegistryUtils;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.client.render.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.render.ColorProviderRegistry;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.sapling.SaplingGenerator;
 import net.minecraft.client.color.block.BlockColorProvider;
 import net.minecraft.client.color.item.ItemColorProvider;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
-import team.abnormals.abnormalib.blocks.*;
-import team.abnormals.abnormalib.blocks.entity.ChestBaseBlockEntity;
-import team.abnormals.abnormalib.client.renderer.ChestBaseBlockEntityRenderer;
-import team.abnormals.abnormalib.utils.registry.RegistryUtils;
-import team.abnormals.origins.modules.decoration.block.PaperLanternBlock;
-import team.abnormals.origins.utils.Utils;
 
 public class WoodRegistry {
 
@@ -242,8 +235,8 @@ public class WoodRegistry {
         }
 
         public Builder wood() {
-            woodRegistry.wood = RegistryUtils.register(new BaseModBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).hardness(2.0F)
-                            .sounds(BlockSoundGroup.WOOD)), new Identifier(name.getNamespace(), name.getPath() + "_wood"), ItemGroup.BUILDING_BLOCKS);
+            woodRegistry.wood = RegistryUtils.register(new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).hardness(2.0F)
+                            .sounds(BlockSoundGroup.WOOD).build()), new Identifier(name.getNamespace(), name.getPath() + "_wood"), ItemGroup.BUILDING_BLOCKS);
             return this;
         }
 
@@ -255,8 +248,8 @@ public class WoodRegistry {
         }
 
         public Builder strippedWood() {
-            woodRegistry.strippedWood = RegistryUtils.register(new BaseModBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).hardness(2.0F)
-                    .sounds(BlockSoundGroup.WOOD)), new Identifier(name.getNamespace(), "stripped_" + name.getPath() + "_wood"),
+            woodRegistry.strippedWood = RegistryUtils.register(new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD).hardness(2.0F)
+                    .sounds(BlockSoundGroup.WOOD).build()), new Identifier(name.getNamespace(), "stripped_" + name.getPath() + "_wood"),
                     ItemGroup.BUILDING_BLOCKS);
             return this;
         }
@@ -274,21 +267,21 @@ public class WoodRegistry {
         }
 
         public Builder planks() {
-            woodRegistry.planks = RegistryUtils.register(new BaseModBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
+            woodRegistry.planks = RegistryUtils.register(new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
                     .strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).build()),
                     new Identifier(name.getNamespace(), name.getPath() + "_planks"), ItemGroup.BUILDING_BLOCKS);
             return this;
         }
 
         public Builder patternedPlanks() {
-            woodRegistry.patternedPlanks = RegistryUtils.register(new BaseModBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
+            woodRegistry.patternedPlanks = RegistryUtils.register(new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
                     .strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).build()),
                     new Identifier(name.getNamespace(), "patterned_" + name.getPath() + "_planks"), ItemGroup.BUILDING_BLOCKS);
             return this;
         }
 
         public Builder carvedPlanks() {
-            woodRegistry.carvedPlanks = RegistryUtils.register(new BaseModBlock(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
+            woodRegistry.carvedPlanks = RegistryUtils.register(new Block(FabricBlockSettings.of(Material.WOOD, MaterialColor.WOOD)
                     .strength(2.0F, 3.0F).sounds(BlockSoundGroup.WOOD).build()),
                     new Identifier(name.getNamespace(), "carved_" + name.getPath() + "_planks"), ItemGroup.BUILDING_BLOCKS);
             return this;
@@ -323,7 +316,7 @@ public class WoodRegistry {
         }
 
         public Builder chest() {
-            ChestBaseBlock chestBaseBlock = new ChestBaseBlock();
+            /*ChestBaseBlock chestBaseBlock = new ChestBaseBlock();
             woodRegistry.chest = RegistryUtils.register(chestBaseBlock, new Identifier(name.getNamespace(), name.getPath() + "_chest"), ItemGroup.DECORATIONS);
             chestBaseBlock.setChestTexture(new Identifier(name.getNamespace(), "textures/entity/chest/" + name.getPath() + ".png"));
             chestBaseBlock.setDoubleChestTexture(new Identifier(name.getNamespace(), "textures/entity/chest/" + name.getPath() + "_double.png"));
@@ -331,12 +324,12 @@ public class WoodRegistry {
             team.abnormals.origins.utils.registry.RegistryUtils.register(String.format("%s_chest", name.getPath()), type);
             if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
                 BlockEntityRendererRegistry.INSTANCE.register(ChestBaseBlockEntity.class, new ChestBaseBlockEntityRenderer());
-            }
+            }*/
             return this;
         }
 
         public Builder trappedChest() {
-            ChestBaseBlock chestBaseBlock = new ChestBaseBlock();
+            /*ChestBaseBlock chestBaseBlock = new ChestBaseBlock();
             woodRegistry.trappedChest = RegistryUtils.register(chestBaseBlock, new Identifier(name.getNamespace(), "trapped_" + name.getPath() + "_chest"),
                     ItemGroup.DECORATIONS);
             chestBaseBlock.setChestTexture(new Identifier(name.getNamespace(), "textures/entity/chest/" + name.getPath() + "_trapped.png"));
@@ -345,7 +338,7 @@ public class WoodRegistry {
             team.abnormals.origins.utils.registry.RegistryUtils.register(String.format("trapped_%s_chest", name.getPath()), type);
             if (FabricLoader.getInstance().getEnvironmentType() == EnvType.CLIENT) {
                 BlockEntityRendererRegistry.INSTANCE.register(ChestBaseBlockEntity.class, new ChestBaseBlockEntityRenderer());
-            }
+            }*/
             return this;
         }
 
@@ -374,15 +367,15 @@ public class WoodRegistry {
         }
 
         public Builder lectern() {
-            woodRegistry.lectern = RegistryUtils.register(new LecternBaseBlock(), new Identifier(name.getNamespace(), name.getPath() + "_lectern"),
-                    ItemGroup.REDSTONE);
+            /*woodRegistry.lectern = RegistryUtils.register(new LecternBaseBlock(), new Identifier(name.getNamespace(), name.getPath() + "_lectern"),
+                    ItemGroup.REDSTONE);*/
             return this;
         }
 
         public Builder paperLantern() {
-            woodRegistry.paperLantern = RegistryUtils.register(new PaperLanternBlock(), new Identifier(name.getNamespace(),
+            /*woodRegistry.paperLantern = RegistryUtils.register(new PaperLanternBlock(), new Identifier(name.getNamespace(),
                     name.getPath() + "_paper_lantern"), ItemGroup.BUILDING_BLOCKS);
-            DispenserBlock.registerBehavior(woodRegistry.paperLantern, Utils::dispense);
+            DispenserBlock.registerBehavior(woodRegistry.paperLantern, Utils::dispense);*/
             return this;
         }
 
@@ -405,7 +398,7 @@ public class WoodRegistry {
         }
 
         public Builder bookshelf() {
-            woodRegistry.bookshelf = RegistryUtils.register(new BaseModBlock(Block.Settings.copy(woodRegistry.planks)),
+            woodRegistry.bookshelf = RegistryUtils.register(new Block(Block.Settings.copy(woodRegistry.planks)),
                     new Identifier(name.getNamespace(), name.getPath() + "_bookshelf"), ItemGroup.BUILDING_BLOCKS);
             return this;
         }

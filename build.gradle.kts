@@ -37,6 +37,7 @@ repositories {
 	maven( "http://server.bbkr.space:8081/artifactory/libs-release/")
 	maven("https://maven.jamieswhiteshirt.com/libs-release/")
 	maven ("https://maven.abusedmaster.xyz")
+	maven("https://jitpack.io")
 }
 
 dependencies {
@@ -51,8 +52,16 @@ dependencies {
     modCompile(group = "me.sargunvohra.mcmods", name = "auto-config", version = Dependencies.AutoConfig.version)
     include(group = "me.sargunvohra.mcmods", name = "auto-config", version = Dependencies.AutoConfig.version)
 
-	modCompile(group = "team.abnormals", name = "AbnormaLib", version = Dependencies.AbnormaLib.version)
-	include(group = "team.abnormals", name = "AbnormaLib", version = Dependencies.AbnormaLib.version)
+	modCompile(group = "vampirelib", name = "vampirelib", version = Dependencies.AbnormaLib.version)
+	include(group = "vampirelib", name = "vampirelib", version = Dependencies.AbnormaLib.version)
+
+	modCompile( "com.github.modmuss50:OptiFabric:e1834b016f")
+
+	//Deps required for optifabric
+	compile("org.zeroturnaround:zt-zip:1.13")
+	compile("net.fabricmc:stitch:0.2.1.61") {
+		isTransitive = false
+	}
 
 	// For dev env testing
 	modCompile("com.jamieswhiteshirt:developer-mode:1.0.12")
@@ -66,7 +75,6 @@ dependencies {
 	modCompile("vanilla-toolsets:vanilla:toolsets:1.1.2")
 	modCompile("miners-horizon:miners:horizon:1.5.0")
 	modCompile("leaf-decay:leaf:decay:1.0.3")
-	modCompile("extended-dispensers:ExtendedDispenser:1.0.1")
 	modCompile("redstone-tweaks:redstonetweaks:1.0.2")
 
 	modCompile("antique-atlas:antiqueatlas:5.0.5:fabric")
